@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Norman Bernal | Personal Portfolio</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    :root {
+      --bg-color: #0b0f19;
+      --snd-bg-color: #151c30;
+      --text-color: #ffffff;
+      --main-color: #00e5ff; /* Luminous Cyan Blue */
+      --glow-color: rgba(0, 229, 255, 0.4);
+    }
+
+    html {
+      font-size: 62.5%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 12rem 9% 4rem;
+    }
+
+    /* Header & Navigation Styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem 9%;
+      background: rgba(11, 15, 25, 0.95);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 229, 255, 0.1);
+      transition: 0.3s;
+    }
+
+    .header.sticky {
+      padding: 1.5rem 9%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-color);
+    }
+
+    .logo span {
+      color: var(--main-color);
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+
+    .navbar {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .navbar a {
+      font-size: 1.6rem;
+      color: var(--text-color);
+      font-weight: 700;
+      transition: 0.3s ease;
+      position: relative;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: var(--main-color);
+    }
+
+    #menu-icon {
+      font-size: 3rem;
+      color: var(--text-color);
+      display: none;
+      cursor: pointer;
+    }
+
+    /* Home Section Styles */
+    .home {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .home-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .home-content h3 {
+      font-size: 3.2rem;
+      font-weight: 700;
+    }
+
+    .home-content h1 {
+      font-size: 5.6rem;
+      line-height: 1.2;
+      font-weight: 800;
+      margin: 1rem 0;
+    }
+
+    .home-content h3 span {
+      color: var(--main-color);
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+
+    .home-content p {
+      font-size: 1.6rem;
+      margin-top: 1.5rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .social-media {
+      margin: 2.5rem 0;
+    }
+
+    .social-media a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 4.5rem;
+      height: 4.5rem;
+      border: 0.2rem solid var(--main-color);
+      border-radius: 50%;
+      color: var(--main-color);
+      font-size: 2rem;
+      margin-right: 1.5rem;
+      transition: 0.4s ease;
+    }
+
+    .social-media a:hover {
+      background: var(--main-color);
+      color: var(--bg-color);
+      box-shadow: 0 0 1.5rem var(--main-color);
+      transform: translateY(-3px);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      background: var(--main-color);
+      color: var(--bg-color);
+      border-radius: 4rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      box-shadow: 0 0 1rem var(--glow-color);
+      transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      box-shadow: 0 0 2rem var(--main-color);
+      transform: scale(1.03);
+    }
+
+    .home-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .home-img img {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 50%;
+      border: 4px solid var(--main-color);
+      box-shadow: 0 0 2.5rem var(--main-color);
+      animation: floatimage 4s ease-in-out infinite;
+    }
+
+    @keyframes floatimage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2rem); }
+    }
+
+    /* About Section Styles */
+    .about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6rem;
+      background: var(--snd-bg-color);
+    }
+
+    .about-img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-img img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 2rem;
+      border: 2px solid rgba(0, 229, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .heading {
+      font-size: 4.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .heading span {
+      color: var(--main-color);
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+
+    .about-content .heading {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .about-content h3 {
+      font-size: 2.6rem;
+      color: var(--main-color);
+    }
+
+    .about-content p {
+      font-size: 1.6rem;
+      margin: 2rem 0 3rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    /* Services Section Styles */
+    .services .heading {
+      margin-bottom: 6rem;
+    }
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+
+    .services-box {
+      background: var(--snd-bg-color);
+      padding: 4rem 3rem;
+      border-radius: 2rem;
+      border: 2px solid transparent;
+      text-align: center;
+      transition: 0.4s ease;
+    }
+
+    .services-box:hover {
+      border-color: var(--main-color);
+      transform: translateY(-10px);
+      box-shadow: 0 0 2rem rgba(0, 229, 255, 0.2);
+    }
+
+    .services-box i {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+      color: var(--main-color);
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+
+    .services-box h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .services-box p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: #94a3b8;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Portfolio Section Styles */
+    .portfolio {
+      background: var(--snd-bg-color);
+    }
+
+    .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .portfolio-box {
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      aspect-ratio: 4/3;
+      border: 1px solid rgba(0, 229, 255, 0.1);
+    }
+
+    .portfolio-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s ease;
+    }
+
+    .portfolio-box:hover img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(11, 15, 25, 0.2), var(--main-color));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 3rem;
+      transform: translateY(100%);
+      transition: .5s ease;
+    }
+
+    .portfolio-box:hover .portfolio-layer {
+      transform: translateY(0);
+    }
+
+    .portfolio-layer h4 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--bg-color);
+    }
+
+    .portfolio-layer p {
+      font-size: 1.5rem;
+      margin: 1rem 0 2rem;
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .portfolio-layer a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      height: 5rem;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .portfolio-layer a:hover {
+      transform: scale(1.1);
+    }
+
+    .portfolio-layer a i {
+      font-size: 2rem;
+      color: var(--bg-color);
+    }
+
+    /* Built-In Contact Information Info Grid Styles */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--snd-bg-color);
+      padding: 3rem 2rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(0, 229, 255, 0.1);
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--main-color);
+      box-shadow: 0 0 1.5rem rgba(0, 229, 255, 0.15);
+    }
+
+    .contact-card i {
+      font-size: 3.5rem;
+      color: var(--main-color);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 10px var(--glow-color);
+    }
+
+    .contact-card h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .contact-card p, .contact-card a {
+      font-size: 1.5rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .contact-card a:hover {
+      color: var(--main-color);
+    }
+
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-socials a {
+      font-size: 2.2rem;
+      color: #94a3b8;
+      transition: 0.3s;
+    }
+
+    .contact-socials a:hover {
+      color: var(--main-color);
+      transform: scale(1.15);
+    }
+
+    /* Footer Styles */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 3rem 9%;
+      background: var(--bg-color);
+      border-top: 1px solid rgba(0, 229, 255, 0.1);
+    }
+
+    .footer-text p {
+      font-size: 1.6rem;
+      color: #94a3b8;
+    }
+
+    .footer-iconTop a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 1.2rem;
+      background: var(--main-color);
+      border-radius: .8rem;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px var(--glow-color);
+    }
+
+    .footer-iconTop a:hover {
+      box-shadow: 0 0 2rem var(--main-color);
+      transform: translateY(-3px);
+    }
+
+    .footer-iconTop a i {
+      font-size: 2.4rem;
+      color: var(--bg-color);
+    }
+
+    /* Media Queries & Responsive Breakpoints */
+    @media (max-width: 1200px) {
+      html { font-size: 55%; }
+    }
+
+    @media (max-width: 991px) {
+      .header, .footer, section { padding: 3rem 5%; }
+      .home { gap: 2rem; }
+      .home-content h1 { font-size: 4.8rem; }
+    }
+
+    @media (max-width: 768px) {
+      #menu-icon { display: block; }
+      
+      .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--snd-bg-color);
+        width: 100%;
+        padding: 2rem 5%;
+        border-top: 1px solid rgba(0, 229, 255, 0.1);
+        display: none;
+        flex-direction: column;
+        gap: 2rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      }
+
+      .navbar.active { display: flex; }
+
+      .home { flex-direction: column-reverse; text-align: center; padding-top: 14rem; }
+      .home-content h1 { font-size: 4.2rem; }
+      .home-img img { max-width: 300px; }
+      
+      .about { flex-direction: column; text-align: center; }
+      .about-content .heading { text-align: center; }
+      .about-img img { max-width: 320px; }
+    }
+
+    @media (max-width: 520px) {
+      .footer { flex-direction: column-reverse; gap: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="#" class="logo">Norman<span>.B</span></a>
+    <i class="fa-solid fa-bars" id="menu-icon"></i>
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home" id="home">
+    <div class="home-content">
+     
+      <h1>NORMAN LUKE BERNAL</h1>
+      <h3>And I'm a <span class="multiple-text"></span></h3>
+      <p>I design and build intuitive, high-performance, and pixel-perfect user interfaces for cutting-edge digital products across the web environment.</p>
+    </div>
+    <div class="home-img">
+      <img src="imag.jpeg" alt="Kishan Thesiya Profile">
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=600&q=80" alt="Work space">
+    </div>
+    <div class="about-content">
+      <h2 class="heading">ABOUT <span>Me</span></h2>
+      <h3>Passionate Web Artisan</h3>
+      <p>I specialize in translating sophisticated design files into elegant, semantic, and maintainable source code. My focus is centered around engineering lightning-fast user interactions while strictly enforcing performance benchmarks.</p>
+ 
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2 class="heading">My <span>Services</span></h2>
+    <div class="services-container">
+      <div class="services-box">
+        <i class="fa-solid fa-code"></i>
+        <h3>Web Development</h3>
+        <p>Building semantic, accessible structural environments leveraging advanced structural mechanics for production-ready standard visibility.</p>
+      </div>
+
+      <div class="services-box">
+        <i class="fa-solid fa-palette"></i>
+        <h3>UI/UX Designing</h3>
+        <p>Creating immersive graphical frameworks, interactive motion maps, and functional micro-interactions customized for brand alignment.</p>
+      </div>
+
+      <div class="services-box">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <h3>Responsive Engineering</h3>
+        <p>Configuring liquid application grids that maintain functional stability seamlessly across standard layouts and ultra-wide displays.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <h2 class="heading">Latest <span>Projects</span></h2>
+
+    <div class="portfolio-container">
+      <div class="portfolio-box">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" alt="SaaS Platform">
+        <div class="portfolio-layer">
+          <h4>SaaS Dashboard Engine</h4>
+          <p>An interactive data visualization infrastructure with live charting metrics.</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=500&q=80" alt="E-Commerce Ecosystem">
+        <div class="portfolio-layer">
+          <h4>E-Commerce Platform</h4>
+          <p>A fast application architecture supporting instantaneous state updates.</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+
+      <div class="portfolio-box">
+        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=500&q=80" alt="Creative Interface">
+        <div class="portfolio-layer">
+          <h4>Creative Agency Hub</h4>
+          <p>Immersive layout structures packed with tailored scroll execution sequences.</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Information</span></h2>
+
+    <!-- Replaced input fields/submit button with standard sample display cards -->
+    <div class="contact-container">
+      
+      <!-- Card 1: Email -->
+      <div class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <h3>Email Me</h3>
+        <p><a href="mailto:norman.luke@example.com">normanluke27@example.com</a></p>
+        <p>Response within 24 hours</p>
+      </div>
+
+      <!-- Card 2: Phone -->
+      <div class="contact-card">
+        <i class="fa-solid fa-phone"></i>
+        <h3>Call Me</h3>
+        <p><a href="tel:+15550192834">09668578620</a></p>
+      
+      </div>
+
+      <!-- Card 3: Location -->
+      <div class="contact-card">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>Location</h3>
+        <p>Capas, Tarlac</p>
+        <p>Philippines</p>
+      </div>
+
+     
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-text">
+    
+    </div>
+    <div class="footer-iconTop">
+      <a href="#home"><i class="fa-solid fa-angle-up"></i></a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <script>
+    /* Toggle Icon Navbar */
+    let menuIcon = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+
+    menuIcon.onclick = () => {
+      menuIcon.classList.toggle('fa-xmark');
+      navbar.classList.toggle('active');
+    }
+
+    /* Scroll Active Link Tracking Matrix */
+    let sections = document.querySelectorAll('section');
+    let navLinks = document.querySelectorAll('header nav a');
+
+    window.onscroll = () => {
+      sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if (top >= offset && top < offset + height) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            let matchedLink = document.querySelector('header nav a[href*=' + id + ']');
+            if(matchedLink) matchedLink.classList.add('active');
+          });
+        };
+      });
+
+      /* Sticky Navigation Control */
+      let header = document.querySelector('header');
+      header.classList.toggle('sticky', window.scrollY > 100);
+    };
+
+    /* Close navigation panel when a mobile menu item is tapped */
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuIcon.classList.remove('fa-xmark');
+        navbar.classList.remove('active');
+      });
+    });
+
+    /* Typed JS Dynamic Loop Config */
+    const typed = new Typed('.multiple-text', {
+      strings: ['Frontend Developer', 'Web Designer', 'UI/UX Architect'],
+      typeSpeed: 70,
+      backSpeed: 50,
+      backDelay: 1200,
+      loop: true
+    });
+  </script>
+</body>
+
+</html>
